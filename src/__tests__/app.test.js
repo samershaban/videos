@@ -2,7 +2,6 @@ import App from "../components/App";
 import axios from "../__mocks__/axios";
 import React from "react";
 import { render, waitFor, cleanup } from '@testing-library/react';
-import Search from "../components/Search";
 
 afterEach(cleanup);
 
@@ -34,7 +33,7 @@ test('mocking axios request', async () => {
   };
 
 axios.get.mockResolvedValueOnce(data);
-const { getByText } = render(<Search />);
+const { getByText } = render(<App />);
 await waitFor(() => {
   expect(getByText('Enter Search Term'));
 });
